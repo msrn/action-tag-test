@@ -29,6 +29,7 @@ jobs:
           git config --global user.email "you@example.com"
           git config --global user.name "Your Name"
           git tag -a {{secrets.GITHUB_TOKEN}}+0.1
+          git push --tags
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
