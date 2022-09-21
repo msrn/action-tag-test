@@ -24,16 +24,8 @@ jobs:
       - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: |
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
-          git config --global core.editor "nano"
-          git tag -a {{secrets.GITHUB_TOKEN}}+0.1
-          git push --tags
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.40.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
